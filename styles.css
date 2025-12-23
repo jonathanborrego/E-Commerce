@@ -8,6 +8,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 nav {
     height: 80px;
@@ -22,9 +26,9 @@ img {
 }
 
 .nav__container {
-    width: 100%;
+    width: 95%;
     max-width: 1200px;
-    padding: 0 24px;
+    /* padding: 0 24px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,6 +68,74 @@ li {
 .nav__link--primary:hover {
     text-decoration: none;
 }
+
+
+.btn__menu {
+    color: #7342d6;
+    border: none;
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    padding-right: 10px;
+    display: none;
+}
+
+.menu__backdrop {
+    background-color: #242424;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease;
+    z-index: 1000;
+}
+
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open {
+    position: fixed;
+}
+
+.btn__menu--close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    color: white;
+}
+
+.menu__links--mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.menu__link--mobile {
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.menu__link--mobile:hover {
+    text-decoration: underline;
+    border: none;
+    color: Black;
+    background-color: white;
+}
+
+
+/* LANDING ... */
 
 #landing {
     background-color: rgb(115, 66, 214, 0.1);
@@ -135,9 +207,15 @@ button:active {
 }
 
 .row {
-    width: 100%;
+    width: 95%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.row__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -226,6 +304,7 @@ FEATURES SECTION STYLES
 
 .books {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .book {
@@ -249,7 +328,7 @@ FEATURES SECTION STYLES
     overflow: hidden;
 }
 
-.book:hover .book__img {
+.book__img:hover {
     transform: scale(1.13);
 }
 
@@ -269,9 +348,115 @@ FEATURES SECTION STYLES
     color: #fabf2a;
 }
 
-
 .book__price--normal {
     text-decoration: line-through;
     padding-right: 6px;
     color: #bfbfbf;
 }
+
+/* EXPLORE ... */
+
+
+#explore {
+    background-color: rgb(115, 66, 214, 0.1);
+}
+
+#explore>header {
+    height: 220px;
+}
+
+
+/* FOOTER ...  */
+
+footer {
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__logo--img {
+    width: 160px;
+    filter: grayscale(1) invert(1);
+}
+
+.footer__links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__link {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.no__cursor {
+    cursor: not-allowed;
+}
+
+.footer__copyright {
+    margin-top: 24px;
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+/* small phone, tablets, large phones ... */
+
+/* tablets ... */
+@media (max-width: 768px) {
+    .header__description {
+        padding: 0 24px;
+    }
+    
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2 {
+        font-size: 26px;
+    }
+    
+    button {
+        font-size: 18px;
+    }
+    
+    .book {
+        width: 50%;
+    }
+}
+
+/* small phone & large phones ... */
+@media (max-width: 550px) {
+    .nav__links {
+        display: none;
+    }
+
+    .btn__menu {
+        display: block;
+    }
+    
+    .highlight__wrapper {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    
+    .highlight {
+        width: 100%;
+    }
+}
+
